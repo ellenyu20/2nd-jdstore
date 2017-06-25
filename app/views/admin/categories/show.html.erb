@@ -1,7 +1,6 @@
-
 <div class="backend-main">
 
-<h2> Product List </h2>
+<h2><%= @category.name %></h2>
 
 <hr>
 
@@ -55,7 +54,7 @@
 </table>
 
 <div class="text-center col-md-12 pagination">
-  <%= will_paginate @products, renderer: BootstrapPagination::Rails %>
+<%= will_paginate @products, renderer: BootstrapPagination::Rails %>
 </div>
 
 </div>

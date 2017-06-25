@@ -13,7 +13,16 @@ Rails.application.routes.draw do
         post :move_down
       end
     end
-    resources :categories
+
+    resources :categories do
+      resources :product do
+        member do
+          post :move_up
+          post :move_down
+        end
+      end
+    end
+
     resources :orders do
     member do
       post :cancel
@@ -25,6 +34,7 @@ Rails.application.routes.draw do
   end
 
   namespace :account do
+    resources :users #用户中心的相关路径
     resources :orders
   end
 
@@ -65,9 +75,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :categories do
-    resources :products
-  end
+  
+
+
 
   resources :favorites
 
